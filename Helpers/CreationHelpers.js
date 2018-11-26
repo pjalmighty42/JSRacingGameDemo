@@ -1,28 +1,27 @@
-
 //Helper Functions
-function getRandomInt (min, max) {
+function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 //Create Tracks
 function createTrackList(
     numberOfTracks
-){
+) {
     var tList = [];
 
-    for(var tCount = 0; tCount < numberOfTracks; tCount++){
+    for (var tCount = 0; tCount < numberOfTracks; tCount++) {
         var typeRandom = Math.floor((Math.random() * 3) + 1);
         var typeOut = "";
-        switch(typeRandom){
+        switch (typeRandom) {
             case 1:
                 typeOut = "Rally";
-            break;
+                break;
             case 2:
                 typeOut = "Road";
-            break;
+                break;
             case 3:
                 typeOut = "Oval";
-            break;
+                break;
         }
 
         var diffRandom = Math.floor((Math.random() * 100) + 1);
@@ -52,37 +51,37 @@ function createTrackList(
 //Create Teams
 function createTeamsList(
     numberOfTeams
-){
+) {
     var tList = [];
 
-    for(var tCount = 0; tCount < numberOfTeams; tCount++){
-            var pitRandom = Math.floor((Math.random() * 100) + 1);
-            var spdRandom = Math.floor((Math.random() * 100) + 1);
-            var mechRandom = Math.floor((Math.random() * 100) + 1);
-            var techRandom = Math.floor((Math.random() * 100) + 1);
-            var vechRandom = Math.floor((Math.random() * 100) + 1);
-            var leadRandom = Math.floor((Math.random() * 100) + 1);
+    for (var tCount = 0; tCount < numberOfTeams; tCount++) {
+        var pitRandom = Math.floor((Math.random() * 100) + 1);
+        var spdRandom = Math.floor((Math.random() * 100) + 1);
+        var mechRandom = Math.floor((Math.random() * 100) + 1);
+        var techRandom = Math.floor((Math.random() * 100) + 1);
+        var vechRandom = Math.floor((Math.random() * 100) + 1);
+        var leadRandom = Math.floor((Math.random() * 100) + 1);
 
-            var newTeam = new Teams(
-                "Team" + tCount,
-                pitRandom,
-                spdRandom,
-                mechRandom,
-                techRandom,
-                vechRandom,
-                leadRandom
-            );
+        var newTeam = new Teams(
+            "Team" + tCount,
+            pitRandom,
+            spdRandom,
+            mechRandom,
+            techRandom,
+            vechRandom,
+            leadRandom
+        );
 
-            newTeam.calculateTeamLevel(
-                pitRandom,
-                spdRandom,
-                mechRandom,
-                techRandom,
-                vechRandom,
-                leadRandom
-            );
+        newTeam.calculateTeamLevel(
+            pitRandom,
+            spdRandom,
+            mechRandom,
+            techRandom,
+            vechRandom,
+            leadRandom
+        );
 
-            tList.push(newTeam);
+        tList.push(newTeam);
     }
 
     return tList;
@@ -92,38 +91,73 @@ function createTeamsList(
 function createRacersList(
     numberOfRacers,
     multiplier
-){
+) {
     var rList = [];
 
-    for(var rCount = 0; rCount < (numberOfRacers * multiplier); rCount++){
-            var ageRandom = getRandomInt(16, 45);
-            var spdRandom = Math.floor((Math.random() * 100) + 1);
-            var cornRandom = Math.floor((Math.random() * 100) + 1);
-            var aggRandom = Math.floor((Math.random() * 100) + 1);
-            var smoothRandom = Math.floor((Math.random() * 100) + 1);
-            var versRandom = Math.floor((Math.random() * 100) + 1);
+    for (var rCount = 0; rCount < (numberOfRacers * multiplier); rCount++) {
+        var ageRandom = getRandomInt(16, 45);
+        var spdRandom = Math.floor((Math.random() * 100) + 1);
+        var cornRandom = Math.floor((Math.random() * 100) + 1);
+        var aggRandom = Math.floor((Math.random() * 100) + 1);
+        var smoothRandom = Math.floor((Math.random() * 100) + 1);
+        var versRandom = Math.floor((Math.random() * 100) + 1);
 
-            var newRacer = new Racer(
-                "RacerFirst" + rCount,
-                "RacerLast" + rCount,
-                ageRandom,
-                spdRandom,
-                cornRandom,
-                aggRandom,
-                smoothRandom,
-                versRandom
-            );
+        var newRacer = new Racer(
+            "RacerFirst" + rCount,
+            "RacerLast" + rCount,
+            ageRandom,
+            spdRandom,
+            cornRandom,
+            aggRandom,
+            smoothRandom,
+            versRandom
+        );
 
-            newRacer.calculateRacerSkill(
-                spdRandom,
-                cornRandom,
-                aggRandom,
-                smoothRandom,
-                versRandom
-            );
+        newRacer.calculateRacerSkill(
+            spdRandom,
+            cornRandom,
+            aggRandom,
+            smoothRandom,
+            versRandom
+        );
 
-            rList.push(newRacer);
+        rList.push(newRacer);
     }
 
     return rList;
+}
+
+function createRaceObjectList(
+    trackType,
+    trackDiff,
+    teamName,
+    teamRating,
+    racerName,
+    racerRating
+) {
+    var rObjList = [];
+
+    rObjList.push(
+        new RaceObject(
+            trackType,
+            trackDiff,
+            teamName,
+            teamRating,
+            racerName,
+            racerRating
+        )
+    )
+}
+
+function createFinishList(
+    raceObjectList
+) {
+    for (var ro = 0; ro < raceObjectList.length; ro++) {
+        raceObjectList[ro].calculateRaceFinishTime(
+            raceObjectList[ro].trackType,
+            raceObjectList[ro].trackOvrRating,
+            raceObjectList[ro].teamOvrRating,
+            raceObjectList[ro].racerOvrRating
+        )
+    }
 }

@@ -1,23 +1,29 @@
 /* Global Styling */
 
-*{
+* {
     font-size: 16px;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     color: #191919;
 }
 
-#main-container{
+#main-container {
     background-color: #EDEDED;
     overflow-x: hidden;
 }
 
-#main-container .container-fluid{
+#main-container .container-fluid {
     padding: 0;
 }
 
-.disabledDiv{
+.disabledDiv {
     pointer-events: none;
     opacity: 0.4;
 }
@@ -26,75 +32,77 @@ h1, h2, h3, h4, h5, h6, p {
 #track-area,
 #teams-area,
 #racers-area,
-#output-area{
+#output-area {
     padding: 1% 2%;
 }
 
 
 /* Header Area */
 
-#header-area{
+#header-area {
     background-color: #B2B2B2;
     border-bottom: 4px solid #333333;
 }
 
-#header-area-nav{
+#header-area-nav {
     display: flex;
     flex-direction: column;
 }
 
-#header-area-nav .row{
+#header-area-nav .row {
     justify-content: right;
     margin-top: .5%;
     margin-bottom: .5%;
 }
 
-.btn{
+.btn {
     border-radius: 0;
     margin-left: .5%;
     font-weight: bold;
 }
 
-#reset-btn{
+#reset-btn {
     background-color: #17a2b8;
     color: #EDEDED;
     border: 2px solid #EDEDED;
 }
 
-#reset-btn:hover{
+#reset-btn:hover {
     background-color: #EDEDED;
     color: #17a2b8;
     border: 2px solid #17a2b8;
 }
 
-#new-btn{
+#new-btn {
     background-color: #28a745;
     color: #EDEDED;
     border: 2px solid #EDEDED;
 }
 
-#new-btn:hover{
+#new-btn:hover {
     background-color: #EDEDED;
     color: #28a745;
     border: 2px solid #28a745;
 }
 
+
 /* Track Section */
 
-#track-area{
+#track-area {
     background-color: #666666;
     border-bottom: 4px solid #EDEDED;
 }
 
-#track-area h2, #track-area h4 {
+#track-area h2,
+#track-area h4 {
     color: #EDEDED;
 }
 
-#track-area hr{
+#track-area hr {
     border-color: #EDEDED;
 }
 
-#track-area select{
+#track-area select {
     border: 2px solid #333333;
 }
 
@@ -102,22 +110,26 @@ h1, h2, h3, h4, h5, h6, p {
     display: none;
 }
 
-#track-info-div .col-4{
+#track-info-div .col-4 {
     font-weight: bold;
 }
 
-#track-name, #track-type, #track-diff{
+#track-name,
+#track-type,
+#track-diff {
     color: #04c304;
 }
 
+
 /* Teams Section */
 
-#teams-area{
+#teams-area {
     background-color: #333333;
     border-bottom: 4px solid #666666;
 }
 
-#teams-area h2, #teams-area h4 {
+#teams-area h2,
+#teams-area h4 {
     color: #EDEDED;
 }
 
@@ -125,13 +137,31 @@ h1, h2, h3, h4, h5, h6, p {
     border-color: #EDEDED;
 }
 
-#teams-num-sel select{
+#teams-num-sel select {
     border: 2px solid #333333;
 }
 
+
 /* Racers Section */
 
-#racers-area{
+#racers-area {
     background-color: #B2B2B2;
     border-bottom: 4px solid #333333;
+}
+
+
+/* Race Output Section */
+
+#begin-btn {
+    color: #191919;
+    border: 2px solid #191919;
+    border-radius: 0;
+    background-color: #EDEDED;
+    transition: all 2ms ease;
+}
+
+#begin-btn:hover {
+    color: #EDEDED;
+    border: 2px solid #04c304;
+    background-color: #04c304;
 }
